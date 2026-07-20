@@ -1,0 +1,7 @@
+<div class="gift-card">
+  <div class="gift-card__content">
+    <h1 class="gift-card__heading">{{ shop.name }}</h1>
+    <p class="gift-card__amount">{{ gift_card.initial_value | money }}</p>
+    <p class="gift-card__code">{{ gift_card.code | format_code }}</p>
+  </div>
+</div>

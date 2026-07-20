@@ -1,0 +1,36 @@
+{
+  "name": "citychoice-theme",
+  "version": "1.0.0",
+  "description": "CityChoice - Premium Electronics Ecommerce Shopify Theme (OS 2.0)",
+  "author": "CityChoice",
+  "license": "MIT",
+  "private": true,
+  "shopify": {
+    "store": "your-development-store.myshopify.com"
+  },
+  "scripts": {
+    "dev": "shopify theme dev",
+    "dev:hot": "shopify theme dev --theme-editor-sync",
+    "pull": "shopify theme pull",
+    "push": "shopify theme push",
+    "check": "shopify theme check",
+    "deploy:staging": "shopify theme push --unpublished --theme CityChoice-Staging",
+    "lint:liquid": "shopify theme check",
+    "build:css": "echo \"CSS is authored as plain CSS3; no build step required.\""
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.70.0"
+  },
+  "dependencies": {
+    "@rive-app/canvas": "^2.21.5",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.13",
+    "lottie-web": "^5.12.2",
+    "lucide": "^0.451.0",
+    "swiper": "^14.0.6",
+    "three": "^0.169.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

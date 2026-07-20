@@ -1,0 +1,22 @@
+# Compiled / generated
+node_modules/
+dist/
+*.log
+npm-debug.log*
+.DS_Store
+
+# Env / secrets
+.env
+.env.*
+*.key
+shopify.app.toml.bak
+
+# Editor
+.vscode/*.log
+*.swp
+
+# OS files
+Thumbs.db
+
+# Local theme cache
+.shopify/

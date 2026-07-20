@@ -1,0 +1,32 @@
+{
+  "name": "CityChoice",
+  "role": "main",
+  "theme_version": "1.0.0",
+  "use_ajax_cart": true,
+  "sections": {
+    "main": {
+      "type": "main"
+    }
+  },
+  "presets": {
+    "default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "blocks": {
+            "menu-item-1": {
+              "type": "menu_item"
+            }
+          }
+        },
+        "main": {
+          "type": "main"
+        },
+        "footer": {
+          "type": "footer"
+        }
+      },
+      "order": ["header", "main", "footer"]
+    }
+  }
+}

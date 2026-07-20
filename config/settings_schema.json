@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Theme Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_black",
+        "label": "Primary Black",
+        "default": "#080808"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_background",
+        "label": "Hero Background",
+        "default": "#050505"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "White",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_card",
+        "label": "Card Background",
+        "default": "#F8FAFC"
+      },
+      {
+        "type": "color",
+        "id": "color_product_card",
+        "label": "Product Card Background",
+        "default": "#F5F7FA"
+      },
+      {
+        "type": "color",
+        "id": "color_main_text",
+        "label": "Main Text",
+        "default": "#111827"
+      },
+      {
+        "type": "color",
+        "id": "color_gray",
+        "label": "Gray Text",
+        "default": "#6B7280"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_blue",
+        "label": "Accent Electric Blue",
+        "default": "#00D9FF"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_accent",
+        "label": "Secondary Accent",
+        "default": "#2563EB"
+      },
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "select",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "options": [
+          { "value": "space-grotesk", "label": "Space Grotesk" },
+          { "value": "satoshi", "label": "Satoshi" }
+        ],
+        "default": "space-grotesk"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "assistant_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page Width (px)",
+        "min": 1100,
+        "max": 1600,
+        "step": 20,
+        "default": 1440
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "label": "Card Radius (px)",
+        "min": 0,
+        "max": 32,
+        "step": 1,
+        "default": 16
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Shopify.theme-check-vscode",
+    "css.lint.unknownProperties": "ignore",
+    "files.associations": {
+      "*.liquid": "html"
+    },
+    "emmet.includeLanguages": {
+      "liquid": "html"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "Shopify.theme-check-vscode",
+      "sissel.liquid",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}
