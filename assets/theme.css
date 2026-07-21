@@ -964,17 +964,31 @@ p {
 
 .skip-link {
   position: absolute;
-  left: -9999px;
-  top: var(--space-md);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
   z-index: var(--z-modal);
-  padding: 12px 20px;
   background: var(--color-black);
   color: var(--color-white);
   border-radius: var(--radius-md);
 }
 
 .skip-link:focus {
+  position: fixed;
   left: var(--space-md);
+  top: var(--space-md);
+  width: auto;
+  height: auto;
+  padding: 12px 20px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 .rte a {

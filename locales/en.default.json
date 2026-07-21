@@ -1,26 +1,24 @@
 {
-  "en": {
-    "general": {
-      "skip_to_content": "Skip to content",
-      "search": "Search",
-      "menu": "Menu",
-      "cart": "Cart",
-      "close": "Close"
-    },
-    "header": {
-      "account": "Account",
-      "log_in": "Log in"
-    },
-    "footer": {
-      "newsletter_heading": "Join the CityChoice community",
-      "newsletter_email_placeholder": "Enter your email",
-      "newsletter_subscribe": "Subscribe"
-    },
-    "product": {
-      "add_to_cart": "Add to cart",
-      "sold_out": "Sold out",
-      "regular_price": "Regular price",
-      "sale_price": "Sale price"
-    }
+  "general": {
+    "skip_to_content": "Skip to content",
+    "search": "Search",
+    "menu": "Menu",
+    "cart": "Cart",
+    "close": "Close"
+  },
+  "header": {
+    "account": "Account",
+    "log_in": "Log in"
+  },
+  "footer": {
+    "newsletter_heading": "Join the CityChoice community",
+    "newsletter_email_placeholder": "Enter your email",
+    "newsletter_subscribe": "Subscribe"
+  },
+  "product": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "regular_price": "Regular price",
+    "sale_price": "Sale price"
   }
 }
