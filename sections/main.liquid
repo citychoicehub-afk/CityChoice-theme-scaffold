@@ -1,20 +1,176 @@
-<div class="section page-width">
-  <div class="stack stack--lg center">
-    <p class="eyebrow">{{ 'general.skip_to_content' | t }}</p>
-    <h1 class="heading-section">{{ shop.name }}</h1>
-    <p class="text-muted">{{ page_description | default: shop.description }}</p>
+<!-- ============================================================
+     CITYCHOICE — HOMEPAGE with 3D Laptop Loader
+     ============================================================ -->
+
+<!-- 3D Laptop Loader -->
+<div class="loader-overlay" id="loaderOverlay">
+  <div class="loader-laptop" id="loaderLaptop">
+    <div class="loader-text" id="loaderText">Click to turn on</div>
+    <canvas id="laptopCanvas"></canvas>
+    <div class="loader-status" id="loaderStatus"></div>
   </div>
 </div>
 
-{% schema %}
-{
-  "name": "Main",
-  "tag": "section",
-  "class": "section-main",
-  "presets": [
-    {
-      "name": "Main"
-    }
-  ]
-}
-{% endschema %}
+<!-- Homepage Content (hidden until loader finishes) -->
+<div class="homepage-content" id="homepageContent" style="display:none;">
+
+  <!-- Hero Section -->
+  <section class="hero section" id="heroSection">
+    <div class="page-width">
+      <div class="hero__inner">
+        <div class="hero__content fade-in slide-up">
+          <p class="eyebrow">{{ 'home.eyebrow' | t }}</p>
+          <h1 class="hero__title heading-hero">{{ 'home.hero_title' | t }}</h1>
+          <p class="hero__subtitle text-lead">{{ 'home.hero_subtitle' | t }}</p>
+          <div class="hero__actions">
+            <a href="/collections/all" class="btn btn--primary btn--lg">{{ 'home.shop_now' | t }}</a>
+            <a href="/pages/about" class="btn btn--secondary btn--lg">{{ 'home.learn_more' | t }}</a>
+          </div>
+        </div>
+        <div class="hero__media fade-in">
+          <canvas id="hero3dCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>{{ 'home.scroll' | t }}</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="section section--tight" id="categoriesSection">
+    <div class="page-width">
+      <div class="stack stack--lg center">
+        <p class="eyebrow">{{ 'home.categories_eyebrow' | t }}</p>
+        <h2 class="heading-section">{{ 'home.categories_title' | t }}</h2>
+      </div>
+      <div class="categories-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-lg);margin-top:var(--space-2xl);">
+        <div class="card category-card" data-index="0" style="padding:var(--space-xl);text-align:center;">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);width:72px;height:72px;border-radius:var(--radius-lg);background:rgba(0,217,255,0.1);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.category_laptops' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);">{{ 'home.category_laptops_desc' | t }}</p>
+        </div>
+        <div class="card category-card" data-index="1" style="padding:var(--space-xl);text-align:center;">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);width:72px;height:72px;border-radius:var(--radius-lg);background:rgba(0,217,255,0.1);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><path d="M4 4h16v12H4z"/><path d="M8 4v12"/><path d="M4 16h16"/><path d="M4 8h16"/><path d="M8 16v4"/><path d="M16 16v4"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.category_phones' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);">{{ 'home.category_phones_desc' | t }}</p>
+        </div>
+        <div class="card category-card" data-index="2" style="padding:var(--space-xl);text-align:center;">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);width:72px;height:72px;border-radius:var(--radius-lg);background:rgba(0,217,255,0.1);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><path d="M20 7h-4a2 2 0 0 1-2-2V2"/><path d="M4 7V4a2 2 0 0 1 2-2h6l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1"/><path d="M12 12v6"/><path d="M9 15h6"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.category_accessories' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);">{{ 'home.category_accessories_desc' | t }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="productsSection">
+    <div class="page-width">
+      <div class="stack stack--lg center">
+        <p class="eyebrow">{{ 'home.products_eyebrow' | t }}</p>
+        <h2 class="heading-section">{{ 'home.products_title' | t }}</h2>
+      </div>
+      <div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-lg);margin-top:var(--space-2xl);">
+        {% for i in (1..4) %}
+        <div class="product-card" data-index="{{ i | minus: 1 }}">
+          <div class="product-card__media">
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--color-surface);color:var(--color-text-secondary);font-size:var(--fs-small);">
+              {{ 'home.product_placeholder' | t }}
+            </div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title">{{ 'home.product_name' | t }} {{ i }}</h3>
+            <span class="product-card__price product-card__price--sale">${{ 499 | plus: i | times: 100 }}</span>
+            <button class="btn btn--primary btn--block" style="margin-top:var(--space-sm);">{{ 'product.add_to_cart' | t }}</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Why Us -->
+  <section class="section theme-dark" id="featuresSection">
+    <div class="page-width">
+      <div class="stack stack--lg center">
+        <p class="eyebrow" style="color:var(--color-accent);">{{ 'home.features_eyebrow' | t }}</p>
+        <h2 class="heading-section">{{ 'home.features_title' | t }}</h2>
+      </div>
+      <div class="features-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-xl);margin-top:var(--space-2xl);">
+        <div class="card feature-card" data-index="0" style="padding:var(--space-xl);text-align:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);background:rgba(0,217,255,0.15);color:var(--color-accent);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.feature_shipping' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);color:var(--color-text-on-dark-muted);">{{ 'home.feature_shipping_desc' | t }}</p>
+        </div>
+        <div class="card feature-card" data-index="1" style="padding:var(--space-xl);text-align:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);background:rgba(0,217,255,0.15);color:var(--color-accent);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.feature_support' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);color:var(--color-text-on-dark-muted);">{{ 'home.feature_support_desc' | t }}</p>
+        </div>
+        <div class="card feature-card" data-index="2" style="padding:var(--space-xl);text-align:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);">
+          <div class="icon-wrapper" style="margin:0 auto var(--space-md);background:rgba(0,217,255,0.15);color:var(--color-accent);">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="5"/></svg>
+          </div>
+          <h3 class="heading-3">{{ 'home.feature_prices' | t }}</h3>
+          <p class="text-muted" style="margin-top:var(--space-sm);color:var(--color-text-on-dark-muted);">{{ 'home.feature_prices_desc' | t }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / CTA -->
+  <section class="section" id="ctaSection" style="background:linear-gradient(135deg,var(--color-hero-black) 0%,var(--color-black) 50%,#0a1f2e 100%);">
+    <div class="page-width">
+      <div class="stack stack--lg center" style="max-width:600px;margin-inline:auto;">
+        <p class="eyebrow" style="color:var(--color-accent);">{{ 'home.cta_eyebrow' | t }}</p>
+        <h2 class="heading-section" style="color:var(--color-white);">{{ 'home.cta_title' | t }}</h2>
+        <p class="text-lead" style="color:var(--color-text-on-dark-muted);">{{ 'home.cta_subtitle' | t }}</p>
+        <form class="newsletter-form" style="display:flex;gap:var(--space-sm);width:100%;max-width:480px;margin:var(--space-lg) auto 0;">
+          <input type="email" class="field__input" placeholder="{{ 'footer.newsletter_email_placeholder' | t }}" style="flex:1;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:var(--color-white);" required>
+          <button type="submit" class="btn btn--primary">{{ 'footer.newsletter_subscribe' | t }}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footerSection">
+    <div class="page-width">
+      <div class="site-footer__grid">
+        <div>
+          <h3 class="site-footer__heading">{{ 'general.brand' | t }}</h3>
+          <p style="color:var(--color-text-on-dark-muted);font-size:var(--fs-small);margin-bottom:var(--space-md);">{{ 'home.brand_description' | t }}</p>
+          <div class="cluster" style="gap:var(--space-sm);">
+            <a href="#" class="icon-btn" aria-label="Facebook" style="background:rgba(255,255,255,0.08);">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="icon-btn" aria-label="Instagram" style="background:rgba(255,255,255,0.08);">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+            </a>
+            <a href="#" class="icon-btn" aria-label="Twitter" style="background:rgba(255,255,255,0.08);">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">{{ 'home.quick_links' | t }}</h3>
+          <a href="/" class="site-footer__link">{{ 'general.home' | t }}</a>
+          <a href="/collections/all" class="site-footer__link">{{ 'general.shop' | t }}</a>
+          <a href="/pages/about" class="site-footer__link">{{ 'general.about' | t }}</a>
+          <a href="/pages/contact" class="site-footer__link">{{ 'general.contact' | t }}</a>
+        </div>
+        <div>
+<h3 class="site-footer__heading">{{ 'home.customer_care' | t }}</h3>
+          <a href="#"

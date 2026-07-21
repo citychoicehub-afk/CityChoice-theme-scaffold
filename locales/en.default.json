@@ -4,7 +4,12 @@
     "search": "Search",
     "menu": "Menu",
     "cart": "Cart",
-    "close": "Close"
+    "close": "Close",
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact",
+    "brand": "CityChoice"
   },
   "header": {
     "account": "Account",
@@ -20,5 +25,47 @@
     "sold_out": "Sold out",
     "regular_price": "Regular price",
     "sale_price": "Sale price"
+  },
+  "loader": {
+    "click_to_turn_on": "Click to turn on"
+  },
+  "home": {
+    "eyebrow": "Premium Electronics",
+    "hero_title": "Discover Tomorrow's Technology Today",
+    "hero_subtitle": "Explore the latest in premium electronics — laptops, phones, accessories and more, curated for those who demand the best.",
+    "shop_now": "Shop Now",
+    "learn_more": "Learn More",
+    "scroll": "Scroll to explore",
+    "categories_eyebrow": "Categories",
+    "categories_title": "Shop by Category",
+    "category_laptops": "Laptops",
+    "category_laptops_desc": "Powerful machines for work and play",
+    "category_phones": "Smartphones",
+    "category_phones_desc": "Cutting-edge mobile technology",
+    "category_accessories": "Accessories",
+    "category_accessories_desc": "Complete your setup with premium gear",
+    "products_eyebrow": "Featured",
+    "products_title": "Featured Products",
+    "product_placeholder": "Product Image",
+    "product_name": "Product",
+    "features_eyebrow": "Why Choose Us",
+    "features_title": "The CityChoice Advantage",
+    "feature_shipping": "Free Express Shipping",
+    "feature_shipping_desc": "Free worldwide shipping on all orders over $50. Fast delivery to your doorstep.",
+    "feature_support": "24/7 Premium Support",
+    "feature_support_desc": "Round-the-clock customer support with dedicated experts ready to help you.",
+    "feature_prices": "Best Price Guarantee",
+    "feature_prices_desc": "We match any competitor's price. Plus enjoy exclusive member-only deals.",
+    "cta_eyebrow": "Stay Connected",
+    "cta_title": "Join the CityChoice Community",
+    "cta_subtitle": "Subscribe for exclusive offers, early access to new products, and tech insights.",
+    "brand_description": "Your premium destination for cutting-edge electronics. Quality curated, globally delivered.",
+    "quick_links": "Quick Links",
+    "customer_care": "Customer Care",
+    "footer_faq": "FAQ",
+    "footer_shipping": "Shipping Info",
+    "footer_returns": "Returns & Exchanges",
+    "footer_rights": "All rights reserved.",
+    "footer_made": "Made with care."
   }
 }

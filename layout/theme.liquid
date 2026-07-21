@@ -16,18 +16,53 @@
     {{ content_for_header }}
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
   </head>
 
   <body class="template-{{ template | split: '.' | first }}">
     <a class="skip-link" href="#MainContent">{{ 'general.skip_to_content' | t }}</a>
 
-    {% sections 'header-group' %}
+    <!-- Glassmorphism Navbar -->
+    <header class="site-header site-header--dark" id="navbar">
+      <div class="page-width">
+        <div class="site-header__inner">
+          <a href="/" class="site-header__logo">
+            <img src="{{ 'favicon.svg' | asset_url }}" alt="CityChoice" width="32" height="32" style="display:inline;vertical-align:middle;margin-right:8px">
+            <span style="background:linear-gradient(135deg,#fff 0%,var(--color-accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CityChoice</span>
+          </a>
+          <nav class="site-nav" id="siteNav">
+            <a href="/" class="site-nav__link" aria-current="page">{{ 'general.home' | t }}</a>
+            <a href="/collections/all" class="site-nav__link">{{ 'general.shop' | t }}</a>
+            <a href="/pages/about" class="site-nav__link">{{ 'general.about' | t }}</a>
+            <a href="/pages/contact" class="site-nav__link">{{ 'general.contact' | t }}</a>
+          </nav>
+          <div class="header-actions">
+            <a href="/search" class="icon-btn" aria-label="{{ 'general.search' | t }}">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </a>
+            <a href="/cart" class="icon-btn" aria-label="{{ 'general.cart' | t }}">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+            <button class="nav-toggle icon-btn" aria-label="{{ 'general.menu' | t }}" onclick="document.getElementById('siteNav').classList.toggle('is-open')">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <main id="MainContent" role="main">
       {{ content_for_layout }}
     </main>
-
-    {% sections 'footer-group' %}
 
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
   </body>
